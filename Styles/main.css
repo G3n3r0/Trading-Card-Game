@@ -30,10 +30,40 @@ body {
     background-image: url("../Graphics/effects test_0_rv2.png");
     /*background-size: 100% 100%;*/
     background-size: auto 100%;
+    display: none;
 }
-/*.i {
-    font: italic bold 3em/50px Georgia, "Times New Roman", Times, serif;
-}*/
+canvas {
+    border: 1px dotted silver;
+}
+
+#card {
+    text-align: center;
+    background-color: gold;
+    background-image: url(http://opengameart.org/sites/default/files/parchment-gold.png);
+    display: inline-block;
+    width: 320px;
+    height: 460px;
+    border-radius: 10px;
+}
+#card #cardImg {
+    border: 1px outset #c0c0c0;
+    width: 300px;
+    height: 240px;
+    margin: 0px;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+#card #cardBox {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.5);
+    width: 300px;
+    height: 180px;
+    margin-top: 5px;
+    border: 1px solid silver;
+}
+#card #cardBox h3 {
+    display: inline;
+}
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -48,27 +78,3 @@ body {
 ::-webkit-scrollbar-track {
     background-color: rgba(0,0,0,0.5);
 }
-.head {
-    float: left;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    /*border-radius: 0.5em;*/
-    font-family: "Nova Square";
-    font-size: 36px;
-    color: white;
-    text-shadow: rgba(0,0,0,0.5) 0px 0px 20px;
-}
-    /*background-image:     -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),    				
-						-webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),					
-						-webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
-						
-						-webkit-linear-gradient(-90deg, hsl(0,0%,78%)  0%, 
-														hsl(0,0%,90%) 47%, 
-														hsl(0,0%,78%) 53%,
-														hsl(0,0%,70%)100%);	*
-}
-.head:hover {
-    color: hsl(210, 100%, 40%);
-	text-shadow: hsla(210,100%,20%,.3) 0 -1px 0, hsl(210,100%,85%) 0 2px 1px;/*, hsla(200,100%,80%,1) 0 0 5px, hsla(210,100%,50%,.6) 0 0 20px;*/
-	/*-webkit-box-shadow: inset hsla(210,100%,30%,  1) 0  0px 0px 4px;*
-}*/
