@@ -47,17 +47,24 @@ window.onload = function() {
         canvas.width = 128;
         canvas.height = 256;
         var c = canvas.getContext("2d");
-        var headCols = ["#F00", "#0F0", "#00F"];
+        //var headCols = ["#F00", "#0F0", "#00F"];
+        var headImgs = ["Graphics/blue_1_128.png", "Graphics/red_1_128.png", "Graphics/green_1_128.png", "Graphics/yellow_1_128.png"];
         var bodyCols = ["#F00", "#0F0", "#00F"];
         var armsCols = ["#F00", "#0F0", "#00F"];
         var legsCols = ["#F00", "#0F0", "#00F", "#F0F"];
-        var h = headCols[head];
+        //var h = headCols[head];
+        var h = headImgs[head];
         var b = bodyCols[body];
         var a = armsCols[arms];
         var l = legsCols[legs];
         
-        c.fillStyle = h;
-        c.fillRect(0.25*canvas.width,0,canvas.width/2,canvas.height/4);
+        //c.fillStyle = h;
+        //c.fillRect(0.25*canvas.width,0,canvas.width/2,canvas.height/4);
+        var hImg = new Image();
+        hImg.onload = function() {
+            c.drawImage(this, 0.25*canvas.width,0,canvas.width/2,canvas.height/4);
+        };
+        hImg.src = h;
         
         c.fillStyle = b;
         c.fillRect(0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
