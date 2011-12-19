@@ -65,6 +65,10 @@ canvas {
     display: inline;
 }
 
+#resource {
+    display: none;
+}
+
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 16px;

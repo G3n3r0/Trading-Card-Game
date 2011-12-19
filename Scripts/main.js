@@ -29,7 +29,9 @@ window.onload = function() {
             //var img = new Image();
             //img.onload = function(e) {
             console.log(this);
-            c.drawImage(this.img, canv.width/2-this.img.width*1.5/2, canv.height/2-this.img.height*1.5/2, this.img.width*1.5, this.img.height*1.5);
+            var scale = canv.height/this.img.height;
+            //c.drawImage(this.img, canv.width/2-this.img.width*1.5/2, canv.height/2-this.img.height*1.5/2, this.img.width*1.5, this.img.height*1.5);
+            c.drawImage(this.img, canv.width/2-this.img.width*scale/2, canv.height/2-this.img.height*scale/2, this.img.width*scale, this.img.height*scale);
             console.log(c);
             var i = canv.toDataURL("image/png");
             document.getElementById("cardImg").src = i;
@@ -49,17 +51,18 @@ window.onload = function() {
         canvas.height = 256;
         var c = canvas.getContext("2d");
         //var headCols = ["#F00", "#0F0", "#00F"];
-        var headImgs = ["Graphics/Body/Head/blue_1_128.png", "Graphics/Body/Head/red_1_128.png", "Graphics/Body/Head/green_1_128.png", "Graphics/Body/Head/yellow_1_128.png"];
+        //var headImgs = ["Graphics/Body/Head/blue_1_128.png", "Graphics/Body/Head/red_1_128.png", "Graphics/Body/Head/green_1_128.png", "Graphics/Body/Head/yellow_1_128.png"];
         var headIds = ["head-blue_1_128", "head-red_1_128", "head-green_1_128", "head-yellow_1_128"];
         //var bodyCols = ["#F00", "#0F0", "#00F"];
-        var bodyImgs = ["Graphics/Body/Torso/suit.png", "Graphics/Body/Torso/dragonBody.png", "Graphics/Body/Torso/creeperBody.jpg"];
+        //var bodyImgs = ["Graphics/Body/Torso/suit.png", "Graphics/Body/Torso/dragonBody.png", "Graphics/Body/Torso/creeperBody.jpg"];
+        var bodyIds = ["torso-suit", "torso-dragonBody", "torso-creeperBody"];
         var armsCols = ["#F00", "#0F0", "#00F"];
         var legsCols = ["#F00", "#0F0", "#00F", "#F0F"];
         //var h = headCols[head];
         //var h = headImgs[head];
         var h = headIds[head];
         //var b = bodyCols[body];
-        var b = bodyImgs[body];
+        var b = bodyIds[body];
         var a = armsCols[arms];
         var l = legsCols[legs];
         
@@ -81,11 +84,13 @@ window.onload = function() {
         
         //c.fillStyle = b;
         //c.fillRect(0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
-        var bImg = new Image();
+        /*var bImg = new Image();
         bImg.onload = function() {
             c.drawImage(this, 0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
         };
-        bImg.src = b;
+        bImg.src = b;*/
+        var bImg = document.getElementById(b);
+        c.drawImage(bImg, 0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
         
         c.fillStyle = a;
         c.fillRect(0.125*canvas.width,0.25*canvas.height,canvas.width/8,canvas.height/3);
