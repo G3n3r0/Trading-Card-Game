@@ -7,15 +7,16 @@ window.onload = function() {
         this.imgSrc = imgSrc;
         this.elem = elem||"neutral";
         this.name = name||"GlaDOS";
+        this.lvl = 1;
         this.img = new Image();
         this.img.t = this;
-        this.img.onload = function(e) {
+        this.img.onload = function() {
             this.t.bit = new Bitmap(this);
             this.t.bit.x = 0;
             this.t.bit.y = 0;
             this.t.bit.scaleX = this.t.bit.scaleY = 2;
-            stage.addChild(this.t.bit);
-            stage.update();
+            window.stage.addChild(this.t.bit);
+            window.stage.update();
             this.t.card();
             //console.log("derp");
         };
@@ -41,6 +42,11 @@ window.onload = function() {
             var upperElem = this.elem.charAt(0).toUpperCase() + this.elem.slice(1);
             var stg = "<h3>"+this.name+"</h3><br />\n<b>Type:</b> "+upperElem;
             txt.innerHTML = stg;
+        };
+        this.evalAtkDef = function() {
+            var atk = 2*this.lvl;
+            var def = 2*this.lvl;
+            return [atk, def];
         };
     }
     function genChar(head,body,arms,legs,elem,name) {
@@ -100,15 +106,16 @@ window.onload = function() {
         c.fillRect(0.25*canvas.width,0.75*canvas.height,canvas.width/5,canvas.height/4);
         c.fillRect(0.5*canvas.width+canvas.width/20,0.75*canvas.height,canvas.width/5,canvas.height/4);
         
-        document.body.appendChild(canvas);
+        //document.body.appendChild(canvas);
         
         return new Character(canvas.toDataURL("image/png"), elem, name)
     }
     function init() {
+        window.scrollTo(0, 1);
         //window.pSrc = "Graphics/kit_from_firefox.png";
         window.pSrc = "Graphics/fox.png";
         //window.char = new Character(pSrc, "fire", "Derp");
-        window.char = genChar(0,1,2,3,"water","Piplup");
+        window.char = genChar(0,2,2,3,"water","Piplup");
     }
     init();
 };
