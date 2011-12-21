@@ -3,9 +3,10 @@ window.onload = function() {
     var canvas = document.getElementById("c");
     window.stage = new Stage(canvas);
     
-    function Character(imgSrc,elem,name) {
+    function Character(imgSrc,elem,clas,name) {
         this.imgSrc = imgSrc;
         this.elem = elem||"neutral";
+        this.clas = clas;
         this.name = name||"GlaDOS";
         this.lvl = 1;
         this.img = new Image();
@@ -40,7 +41,8 @@ window.onload = function() {
             //img.src = this.imgSrc;
             var txt = document.getElementById("cardBox");
             var upperElem = this.elem.charAt(0).toUpperCase() + this.elem.slice(1);
-            var stg = "<h3>"+this.name+"</h3><br />\n<b>Type:</b> "+upperElem;
+            var upperClass = this.clas.charAt(0).toUpperCase() + this.clas.slice(1);
+            var stg = "<h3>"+this.name+"</h3><br />\n<b>Level:</b> "+extCode.numToText(this.lvl)+"<br />\n<b>Type:</b> "+upperElem+"<br />\n<b>Class:</b> "+upperClass;
             txt.innerHTML = stg;
         };
         this.evalAtkDef = function() {
@@ -49,7 +51,7 @@ window.onload = function() {
             return [atk, def];
         };
     }
-    function genChar(head,body,arms,legs,elem,name) {
+    function genChar(head, body, arms, legs, elem, clas, name) {
         //var rsrcLength = 2;
         //alert("Durr");
         var canvas = document.createElement("canvas");
@@ -108,14 +110,14 @@ window.onload = function() {
         
         //document.body.appendChild(canvas);
         
-        return new Character(canvas.toDataURL("image/png"), elem, name)
+        return new Character(canvas.toDataURL("image/png"), elem, clas, name);
     }
     function init() {
         window.scrollTo(0, 1);
         //window.pSrc = "Graphics/kit_from_firefox.png";
         window.pSrc = "Graphics/fox.png";
         //window.char = new Character(pSrc, "fire", "Derp");
-        window.char = genChar(0,2,2,3,"water","Piplup");
+        window.char = genChar(0,2,2,3,"water","warrior","Piplup");
     }
     init();
 };
