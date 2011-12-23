@@ -36,6 +36,7 @@ canvas {
     width: 320px;
     height: 460px;
     border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 #card #cardImg {
     border: 1px outset #c0c0c0;
@@ -44,6 +45,8 @@ canvas {
     margin: 0px;
     margin-top: 10px;
     background-color: rgba(0,0,0,0.5);
+    box-shadow: inset 4px 4px 4px rgba(0,0,0,0.5);
+    background-position: center;
 }
 #card #cardBox {
     display: inline-block;
@@ -59,4 +62,55 @@ canvas {
 
 #resource {
     display: none;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: table;
+}
+.overlay #qrCont {
+    display: table-cell;
+    vertical-align: middle;
+}
+.hidden {
+    display: none;
+}
+
+.water {
+    background-image: url("http://fc04.deviantart.net/fs70/i/2011/248/4/c/the_ocean_by_eluva-d48z4wx.jpg");
+    background-size: 100%;
+}
+.fire {
+    background-image: url("../Graphics/Card Backs/Balrog10_Smaller.png");
+    background-size: auto 100%;
+}
+
+/*#playerSide {
+    position: relative;
+    left: -25%;
+}
+#enemSide {
+    position: relative;
+    left: 25%;
+}*/
+#playerSide, #enemSide {
+    width: 64px;
+}
+#buttons {
+    display: inline-block;
+    width: 50%;
+}
+#buttons button {
+    width: 50%;
+}
+#card {
+    display: none;
+}
+#vs {
+    color: white;
 }

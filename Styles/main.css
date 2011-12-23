@@ -24,3 +24,30 @@ body {
 ::-webkit-scrollbar-track {
     background-color: rgba(0,0,0,0.5);
 }
+
+#playerSide, #enemSide {
+    width: 128px;
+}
+
+/*#card, #container {
+    z-index: 6;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    -webkit-backface-visibility: hidden;
+}
+#container:hover #card {
+    -webkit-transform: rotateY(180deg);
+}
+
+#backface {
+    -webkit-backface-visibility: hidden;
+    position: relative;
+    /*left: -320px;
+    top: 114px;*
+    top: -460px;
+    width: 320px;
+    height: 460px;
+    background-color: red;
+    display: inline-block;
+    z-index: -1;
+}*/

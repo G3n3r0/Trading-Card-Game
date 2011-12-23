@@ -18,7 +18,7 @@ window.onload = function() {
             this.t.bit.scaleX = this.t.bit.scaleY = 2;
             window.stage.addChild(this.t.bit);
             window.stage.update();
-            this.t.card();
+            //this.t.card();
             //console.log("derp");
         };
         this.img.src = imgSrc;
@@ -50,6 +50,11 @@ window.onload = function() {
             var def = 2*this.lvl;
             return [atk, def];
         };
+        this.battle = function(enem) {
+            document.getElementById("playerSide").src = this.img.src;
+            document.getElementById("enemSide").src = enem.img.src;
+            document.getElementById("vs").innerHTML = this.name+" vs "+enem.name;
+        };
     }
     function genChar(head, body, arms, legs, elem, clas, name) {
         //var rsrcLength = 2;
@@ -58,6 +63,10 @@ window.onload = function() {
         canvas.width = 128;
         canvas.height = 256;
         var c = canvas.getContext("2d");
+        c.shadowOffsetX = 4;
+        c.shadowOffsetY = 4;
+        c.shadowBlur    = 4;
+        c.shadowColor   = 'rgba(0, 0, 0, 0.5)';
         //var headCols = ["#F00", "#0F0", "#00F"];
         //var headImgs = ["Graphics/Body/Head/blue_1_128.png", "Graphics/Body/Head/red_1_128.png", "Graphics/Body/Head/green_1_128.png", "Graphics/Body/Head/yellow_1_128.png"];
         var headIds = ["head-blue_1_128", "head-red_1_128", "head-green_1_128", "head-yellow_1_128"];
@@ -97,11 +106,16 @@ window.onload = function() {
             c.drawImage(this, 0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
         };
         bImg.src = b;*/
+        /*var bImg = document.getElementById(b);
+        c.drawImage(bImg, 0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);*/
+        
+        c.fillStyle = a;
+        c.fillRect(0.125*canvas.width,0.25*canvas.height,canvas.width/8,canvas.height/3);
+        
         var bImg = document.getElementById(b);
         c.drawImage(bImg, 0.25*canvas.width,0.25*canvas.height,canvas.width/2,canvas.height/2);
         
         c.fillStyle = a;
-        c.fillRect(0.125*canvas.width,0.25*canvas.height,canvas.width/8,canvas.height/3);
         c.fillRect(0.75*canvas.width,0.25*canvas.height,canvas.width/8,canvas.height/3);
         
         c.fillStyle = l;
@@ -112,12 +126,32 @@ window.onload = function() {
         
         return new Character(canvas.toDataURL("image/png"), elem, clas, name);
     }
+
+    function create_qrcode(text, typeNumber, errorCorrectLevel, table) {
+
+	    var qr = qrcode(typeNumber || 4, errorCorrectLevel || 'M');
+	    qr.addData(text);
+	    qr.make();
+
+        //	return qr.createTableTag();
+	    return qr.createImgTag(200, 200);
+    };
+    
+    function out_qrcode(id, text) {
+        document.getElementById(id).innerHTML = create_qrcode(text);
+    }
+    
     function init() {
         window.scrollTo(0, 1);
         //window.pSrc = "Graphics/kit_from_firefox.png";
         window.pSrc = "Graphics/fox.png";
         //window.char = new Character(pSrc, "fire", "Derp");
         window.char = genChar(0,2,2,3,"water","warrior","Piplup");
+        window.char.card();
+        window.char.battle(genChar(3,1,2,1,"fire","defender","El Derpo"));
+        
+        //out_qrcode("qrCont", "Derpes!!!");
+        //document.getElementById("qr").setAttribute("class","overlay");
     }
     init();
 };

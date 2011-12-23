@@ -1,0 +1,16 @@
+#card {
+    /*-webkit-box-shadow: -0.06em 0 red, 0.06em 0 cyan;*/
+    /*box-shadow: -10px 0 red, 10px 0 cyan;
+    /*box-shadow: -0.06em 0 red, 0.06em 0 cyan;*/
+    box-shadow: -0.6em -0.6em 0 rgba(255,0,0,0.5), 0.6em 0.6em 0 rgba(0,255,255,0.5);
+}
+/*#card #cardImg {
+    box-shadow: inset -0.6em -0.6em 0 rgba(255,0,0,0.5), 0.6em 0.6em 0 rgba(0,255,255,0.5);
+}
+/*#cardBox * {
+    box-shadow: none;
+}
+/*.3D h1, .3d h2, .3d h3, .3d h4 {
+    box-shadow: none;
+    text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+}*/

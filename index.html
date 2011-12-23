@@ -11,6 +11,12 @@
 <!--<link href='http://fonts.googleapis.com/css?family=Marck+Script&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
 <link rel="stylesheet" href="Styles/mobile.css" />
 <link rel="stylesheet" href="Styles/main.css" media="all and (min-device-width: 640px)" />
+<!--<link rel="alternate stylesheet" href="Styles/3D.css" />-->
+<!--<style>
+@import url("Styles/mobile.css");
+@import url("Styles/main.css") all and (min-device-width: 640px);
+@import url("Styles/3D.css");
+</style>-->
 <script src="Scripts/EaselJS/lib/easel.js"></script>
 <!--<script src="Scripts/EaselJS/src/easeljs/utils/UID.js"></script>
 <script src="Scripts/EaselJS/src/easeljs/geom/Matrix2D.js"></script>
@@ -29,6 +35,7 @@
 <script src="Scripts/EaselJS/src/easeljs/ui/Touch.js"></script>
 <!--<script src="Scripts/main.js"></script>-->
 <script src="Scripts/extern_code.js"></script>
+<script src="Scripts/qr_export.js"></script>
 <script src="Scripts/main.js"></script>
 </head>
 <body>
@@ -46,9 +53,23 @@
   <div class="bar7"></div>
   <div class="bar8"></div>-->
 <!--<h1 style="font-size: 10em;">DERPES OF THE EYE!</h1>-->
-<div id="card">
-<img id="cardImg" />
+<div id="card" class="3d">
+<img id="cardImg" class="water" />
 <div id="cardBox"></div>
+</div>
+
+<div id="battleDiv">
+<img id="playerSide" />
+<div id="buttons">
+<h3 id="vs"></h3>
+<button>Button 1</button><button>Button 2</button><br />
+<button>Button 3</button><button>Button 4</button>
+</div>
+<img id="enemSide" />
+</div>
+
+<div id="qr" class=".overlay hidden">
+<div id="qrCont"></div>
 </div>
 
 <div id="resource">
