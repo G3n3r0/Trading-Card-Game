@@ -10,14 +10,32 @@ window.onload = function() {
         //this.effectFunc = new Function(this.effect);
     }
     
+    var elemEffects = {
+        water: {
+            fire: 1.5,
+            water: 1,
+            grass: 0.5
+        },
+        fire: {
+            fire: 1,
+            water: 0.5,
+            grass: 1.5
+        },
+        grass: {
+            fire: 0.5,
+            water: 1.5,
+            grass: 1
+        }
+    };
+    
     function Character(imgSrc,elem,clas,name) {
         this.imgSrc = imgSrc;
         this.elem = elem||"neutral";
         this.clas = clas;
         this.name = name||"GlaDOS";
         this.lvl = 1;
-        this.atk = 6;
-        this.def = 4;
+        //this.atk = 6;
+        //this.def = 4;
         this.img = new Image();
         this.img.t = this;
         this.img.onload = function() {
@@ -60,13 +78,48 @@ window.onload = function() {
             var def = 2*this.lvl;
             return [atk, def];
         };
+        this.evalHealth = function() {
+            return 50+4*this.lvl;
+        };
         this.battle = function(enem) {
+            this.tempAtk = this.evalAtkDef()[0];
+            this.tempDef = this.evalAtkDef()[1];
+            console.log(this.evalAtkDef());
+            this.health = this.evalHealth();
+            
+            enem.tempAtk = enem.evalAtkDef()[0];
+            enem.tempDef = enem.evalAtkDef()[1];
+            enem.health = enem.evalHealth();
+            
             document.getElementById("playerSide").src = this.img.src;
             document.getElementById("enemSide").src = enem.img.src;
             document.getElementById("vs").innerHTML = this.name+" vs "+enem.name;
+            var t = this;
             for(var i=0;i<this.atks.length;i++) {
                 document.getElementById("fightBtn"+(i+1)).innerHTML = this.atks[i].name;
+                document.getElementById("fightBtn"+(i+1)).atk = JSON.stringify(this.atks[i]);
+                document.getElementById("fightBtn"+(i+1)).onclick = function() {
+                    //console.log(t.atks, i, t.atks[i]);
+                    //t.evalAtk(t.atks[i], enem);
+                    t.evalAtk(JSON.parse(this.atk), enem);
+                };
             }
+        };
+        this.evalAtk = function(atk, other) {
+            //console.log(atk);
+            console.log(other.health, this.tempDef);
+            var type = atk.type;
+            var effect = atk.effect;
+            console.log(effect);
+            //var playerAtkDef = this.evalAtkDef;
+            //var enemAtkDef = other.evalAtkDef;
+            //console.log(atk, other);
+            if(effect[0]=="attack") {
+                other.health -= effect[1]*elemEffects[type][other.elem]-0.25*other.tempDef+0.25*this.tempAtk;
+            } else if(effect[0]=="defend") {
+                this.tempDef += effect[1];
+            }
+            console.log(other.health, this.tempDef);
         };
     }
     function genChar(head, body, arms, legs, elem, clas, name) {
