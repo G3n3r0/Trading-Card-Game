@@ -114,3 +114,9 @@ canvas {
 #vs {
     color: white;
 }
+#battleDiv {
+    display: block;
+    background-image: url(http://opengameart.org/sites/default/files/tower_4.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+}

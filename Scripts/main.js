@@ -3,12 +3,21 @@ window.onload = function() {
     var canvas = document.getElementById("c");
     window.stage = new Stage(canvas);
     
+    function Attack(name, type, effect) {
+        this.name = name;
+        this.type = type;
+        this.effect = effect;
+        //this.effectFunc = new Function(this.effect);
+    }
+    
     function Character(imgSrc,elem,clas,name) {
         this.imgSrc = imgSrc;
         this.elem = elem||"neutral";
         this.clas = clas;
         this.name = name||"GlaDOS";
         this.lvl = 1;
+        this.atk = 6;
+        this.def = 4;
         this.img = new Image();
         this.img.t = this;
         this.img.onload = function() {
@@ -22,6 +31,7 @@ window.onload = function() {
             //console.log("derp");
         };
         this.img.src = imgSrc;
+        this.atks = [new Attack("Derp", "water", ["attack", 2]), new Attack("Herp", "water", ["defend", 2])];
         
         this.card = function() {
             var canv = document.createElement("canvas");
@@ -54,6 +64,9 @@ window.onload = function() {
             document.getElementById("playerSide").src = this.img.src;
             document.getElementById("enemSide").src = enem.img.src;
             document.getElementById("vs").innerHTML = this.name+" vs "+enem.name;
+            for(var i=0;i<this.atks.length;i++) {
+                document.getElementById("fightBtn"+(i+1)).innerHTML = this.atks[i].name;
+            }
         };
     }
     function genChar(head, body, arms, legs, elem, clas, name) {

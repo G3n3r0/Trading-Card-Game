@@ -28,6 +28,13 @@ body {
 #playerSide, #enemSide {
     width: 128px;
 }
+#buttons {
+    max-width: 640px;
+}
+/*#battleDiv {
+    display: inline-block;
+    max-width: 896px;
+}*/
 
 /*#card, #container {
     z-index: 6;
