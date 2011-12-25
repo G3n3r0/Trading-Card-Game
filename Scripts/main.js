@@ -72,6 +72,9 @@ window.onload = function() {
             var upperClass = this.clas.charAt(0).toUpperCase() + this.clas.slice(1);
             var stg = "<h3>"+this.name+"</h3><br />\n<b>Level:</b> "+extCode.numToText(this.lvl)+"<br />\n<b>Type:</b> "+upperElem+"<br />\n<b>Class:</b> "+upperClass;
             txt.innerHTML = stg;
+            
+            var stg2 = "&#9876;"+this.evalAtkDef()[0];
+            document.getElementById("atkDef").innerHTML = stg2;
         };
         this.evalAtkDef = function() {
             var atk = 2*this.lvl;
@@ -245,7 +248,7 @@ window.onload = function() {
         //window.char = new Character(pSrc, "fire", "Derp");
         window.char = genChar(0,2,2,3,"water","warrior","Piplup");
         window.char.card();
-        window.char.battle(genChar(3,1,2,1,"fire","defender","El Derpo"));
+        //window.char.battle(genChar(3,1,2,1,"fire","defender","El Derpo"));
         
         //out_qrcode("qrCont", "Derpes!!!");
         //document.getElementById("qr").setAttribute("class","overlay");

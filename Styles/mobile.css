@@ -52,12 +52,22 @@ canvas {
     display: inline-block;
     background-color: rgba(255,255,255,0.5);
     width: 300px;
-    height: 180px;
+    height: 175px;
     margin-top: 5px;
     border: 1px solid silver;
 }
 #card #cardBox h3 {
     display: inline;
+}
+#card #atkDef {
+    display: inline-block;
+    width: 300px;
+    height: 16px;
+    line-height: 14px;
+    margin-top: 0px;
+    background-color: rgba(255,255,255,0.5);
+    text-align: right;
+    font-weight: bolder;
 }
 
 #resource {
@@ -109,9 +119,9 @@ canvas {
 #buttons button {
     width: 50%;
 }
-#card {
+/*#card {
     display: none;
-}
+}*/
 #vs {
     color: white;
     background-color: rgba(0,0,0,0.5);
@@ -122,6 +132,7 @@ canvas {
 }
 #battleDiv {
     display: block;
+    display: none;
     background-image: url(http://opengameart.org/sites/default/files/tower_4.png);
     background-position: bottom;
     background-repeat: no-repeat;

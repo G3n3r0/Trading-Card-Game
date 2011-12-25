@@ -2,8 +2,19 @@
     /*-webkit-box-shadow: -0.06em 0 red, 0.06em 0 cyan;*/
     /*box-shadow: -10px 0 red, 10px 0 cyan;
     /*box-shadow: -0.06em 0 red, 0.06em 0 cyan;*/
-    box-shadow: -0.6em -0.6em 0 rgba(255,0,0,0.5), 0.6em 0.6em 0 rgba(0,255,255,0.5);
+    /*box-shadow: -0.6em -0.6em 0 rgba(255,0,0,0.5), 0.6em 0.6em 0 rgba(0,255,255,0.5);*/
+    box-shadow: -0.36em 0 red, 0.36em 0 cyan;
+    /*box-shadow: -0.06em 0 red, 0.06em 0 cyan;*/
 }
+#card h3 {
+    text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+}
+#card h3:hover {
+    font-size: 1.5em;
+}
+/*#card #cardImg, #card #cardBox {
+    text-shadow: -0.6em 0 red, 0.6em 0 cyan;
+}*/
 /*#card #cardImg {
     box-shadow: inset -0.6em -0.6em 0 rgba(255,0,0,0.5), 0.6em 0.6em 0 rgba(0,255,255,0.5);
 }
