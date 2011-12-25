@@ -104,6 +104,7 @@ canvas {
 #buttons {
     display: inline-block;
     width: 50%;
+    margin-bottom: 16px;
 }
 #buttons button {
     width: 50%;
@@ -113,6 +114,11 @@ canvas {
 }
 #vs {
     color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
 }
 #battleDiv {
     display: block;
@@ -120,3 +126,10 @@ canvas {
     background-position: bottom;
     background-repeat: no-repeat;
 }
+#buttons meter {
+    width: 50%;
+    border: 1px solid silver;
+}
+/*#buttons meter:nth-child(2) {
+    margin-right: 2%;
+}*/

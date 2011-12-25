@@ -1,7 +1,17 @@
 #Elder Cards
-A trading card game. With some modifications. One might say that it is a World of Cardcraft. And of course, a Kingdom of Cards.
+A trading card game. With some modifications. One might say that it is a World of Cardcraft. And of course, a Kingdom Cards game. Maybe even Final Cardasy.
 
 ##Changes
+###12/24/2011
+* Added the attack parsing code
+* Added the health meters
+* Gave the versus text more contrast, and also made it inline-block
+* Added some more copytrolls to this changelog
+* Using the following formlas now:
+  * Attack Effect: <code>other.health -= effect[1]*elemEffects[type][other.elem]-0.25*other.tempDef+0.25*this.tempAtk;</code>
+  * Defense Increase Effect: <code>this.tempDef += effect[1];</code>
+* Considered adding a &lt;meter&gt; shim
+
 ###12/23/2011
 * Added attack info to the Character class
 * Added n Attack class

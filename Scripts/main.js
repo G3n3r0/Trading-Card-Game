@@ -94,6 +94,23 @@ window.onload = function() {
             document.getElementById("playerSide").src = this.img.src;
             document.getElementById("enemSide").src = enem.img.src;
             document.getElementById("vs").innerHTML = this.name+" vs "+enem.name;
+            
+            var pHealth = document.getElementById("playerHealth");
+            pHealth.max = this.evalHealth();
+            pHealth.value = this.evalHealth();
+            pHealth.low = 0.25*this.evalHealth();
+            pHealth.high = 0.75*this.evalHealth();
+            pHealth.optimum = this.evalHealth();
+            pHealth.innerHTML = pHealth.value+"/"+pHealth.max;
+            
+            var eHealth = document.getElementById("enemHealth");
+            eHealth.max = enem.evalHealth();
+            eHealth.value = enem.evalHealth();
+            eHealth.low = 0.25*enem.evalHealth();
+            eHealth.high = 0.75*enem.evalHealth();
+            eHealth.optimum = enem.evalHealth();
+            eHealth.innerHTML = eHealth.value+"/"+eHealth.max;
+            
             var t = this;
             for(var i=0;i<this.atks.length;i++) {
                 document.getElementById("fightBtn"+(i+1)).innerHTML = this.atks[i].name;
@@ -119,7 +136,21 @@ window.onload = function() {
             } else if(effect[0]=="defend") {
                 this.tempDef += effect[1];
             }
-            console.log(other.health, this.tempDef);
+            //console.log(other.health, this.tempDef);
+            
+            var pHealth = document.getElementById("playerHealth");
+            pHealth.value = this.health;
+            pHealth.innerHTML = pHealth.value+"/"+pHealth.max;
+            
+            var eHealth = document.getElementById("enemHealth");
+            eHealth.value = other.health;
+            eHealth.innerHTML = eHealth.value+"/"+eHealth.max;
+            
+            if(other.health<=0) {
+                alert("You win!");
+            } else if(this.health<=0) {
+                alert("You lose!");
+            }
         };
     }
     function genChar(head, body, arms, legs, elem, clas, name) {
