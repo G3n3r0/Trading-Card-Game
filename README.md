@@ -2,6 +2,12 @@
 A trading card game. With some modifications. One might say that it is a World of Cardcraft. And of course, a Kingdom Cards game. Maybe even Final Cardasy.
 
 ##Changes
+###12/25/2011
+* Got my 3D glasses, so screwed around with that for a while
+* Read several of my new JS graphics books. I guess I finally have no excse for writing the world's least optimized code.
+* Found that article about 3D in the canvas
+* Merry Christmas, world!
+
 ###12/24/2011
 * Added the attack parsing code
 * Added the health meters

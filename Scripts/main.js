@@ -73,7 +73,7 @@ window.onload = function() {
             var stg = "<h3>"+this.name+"</h3><br />\n<b>Level:</b> "+extCode.numToText(this.lvl)+"<br />\n<b>Type:</b> "+upperElem+"<br />\n<b>Class:</b> "+upperClass;
             txt.innerHTML = stg;
             
-            var stg2 = "&#9876;"+this.evalAtkDef()[0];
+            var stg2 = "&#9876;"+this.evalAtkDef()[0]+" &#1757;"+this.evalAtkDef()[1];
             document.getElementById("atkDef").innerHTML = stg2;
         };
         this.evalAtkDef = function() {
